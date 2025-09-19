@@ -1,0 +1,95 @@
+/**
+ * The VowelsAndConsonants Class
+ * This program will create a VowelCons object and a menu to display to the user
+ * 
+ * The Programming Assignment Chapter 9 - 4
+ * @author Angie Tirado
+ * @since 2/28/24
+ * @version 1.0
+ */
+//allows reference to Scanner class
+import java.util.Scanner;
+public class VowelsAndConsonants {
+
+    public static void main(String[] args) {
+        
+        //creates a new Scanner object
+        Scanner userInput = new Scanner(System.in);
+        //prompts user to enter a String
+        System.out.println("Enter a String to start: ");
+        //stores the users a
+        String userString = userInput.nextLine();
+        //displays the menu
+        menu();
+        //creates a String for the user to input values
+        String userStr = userInput.nextLine();
+        //creates a VowelCons object
+        VowelCons vc = new VowelCons(userString);
+        //creates a playAgain variable to determine if the user wants to play again
+        boolean playAgain = false;
+        
+        do{
+            //creates a String the hols the users answer whether they want to play again or not
+            String pA = "";
+            //checks to see if the user inputed an a
+            if(userStr.equals("a")){
+                //calls and displays the getNumVowels() method
+                System.out.println("The total number of vowels are: " + vc.getNumVowels());
+            }
+            //checks to see if the user inputed an b
+            else if (userStr.equals("b")){
+                //calls and displays the getNumConsonants() method
+                System.out.println("The total number of consonants are: " + vc.getNumConsonants());
+            }
+            //checks to see if the user inputed an c
+            else if(userStr.equals("c")){
+                //calls and displays both the getNumVowels() and the getNumConsonants() methods and adds them together
+                System.out.println("The total number of vowels and consonants are: " + (vc.getNumConsonants() + vc.getNumVowels()));
+            }
+            //checks to see if the user inputed an d
+            else if(userStr.equals("d")){
+                //prompts the user to enter another String
+                System.out.println("Enter another String: ");
+                //stores the string into a variable
+                userString = userInput.nextLine();
+            }
+            //checks to see if the user inputed an e
+            else if(userStr.equals("e")){
+                //exits out of the program
+                System.exit(0);
+            }
+            //asks the user if they would like to play again
+            System.out.println("Would you like to play again? y/n");
+            //stores the users answer in the variable pA
+            pA = userInput.nextLine();
+            //checks if the answer is equal to y
+            if(pA.equalsIgnoreCase("y")){
+                //changes the playAgain to true
+                playAgain = true;
+                //prompts the user to enter another string
+                System.out.println("Enter another string: ");
+                //stores the users String 
+                userString = userInput.nextLine();
+                //displays the menu
+                menu();
+            }
+            
+        //while the userStr variable is either a, b, c, d, or e
+        }while((userStr.equals("a")) || (userStr.equals("b")) || (userStr.equals("c")) || (userStr.equals("d")) || (userStr.equals("e")) || playAgain == true);
+    }
+    
+    /**
+     * The menu() method will display the menu to the user when called
+     */
+    public static void menu(){
+            //displays the menu to the user
+            System.out.println("\n The Vowel and Consonants Menu: "
+                    + "\n Enter the following letters to choose "
+                    + "\n a) Count the number of vowels in the string"
+                    + "\n b) Count the number of constants in the string"
+                    + "\n c) Count both the vowels and consonants in the string"
+                    + "\n d) Enter another string"
+                    + "\n e) Exit the program"); 
+            
+    }
+}    
