@@ -1,0 +1,42 @@
+/**
+ *
+ * @author Angie T
+ */
+public class VowelCons {
+    private char[] vowels;
+    private char[] consonants;
+    private int numVowels = 0;
+    private int numCons = 0;
+    
+    public VowelCons(String str){
+        
+        str = str.toLowerCase();
+        
+        for(int i = 0; i < str.length(); i++){
+            char c = str.charAt(i);
+            if((c == 'a') || (c == 'e') || (c == 'i') || (c == 'o') || (c == 'u')){
+                numVowels++;
+            }
+            else{
+                numCons++;
+            }
+        }
+        
+        //countVowelsAndCons();
+        
+        
+    }
+    
+    public int getNumVowels(){
+        return numVowels;
+    }
+    
+    public int getNumConsonants(){
+        return numCons;
+    }
+    
+    private void countVowelsAndCons(){
+        System.out.println(getNumVowels() + getNumConsonants());
+    }
+    
+}
